@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Rock = 0; Scissors = 1; Paper = 2 -->
+    <script>
+        function computerPlay() {
+            compMove = Math.floor(Math.random() * Math.floor(3));
+            console.log(compMove);
+            return compMove;
+        }
+
+        function playRound(userMove) {
+            let compScore = computerPlay();
+            let userScore = 0;
+            if (userMove.toLowerCase() === 'scissors'){
+                userScore = 1;
+            }
+            else if (userMove.toLowerCase() === 'paper') {
+                userScore = 2;
+            }
+            console.log(userScore);
+            return (userScore-compScore)===0? `Player selected ${userMove}, bot selected ${userMove}. That's a draw!`:((userScore-compScore)===1 || (userScore-compScore)===-2)?`Bot wins!`:`Player wins!`;
+        }
+    </script>
+</body>
+</html>
