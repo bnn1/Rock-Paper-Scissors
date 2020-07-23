@@ -3,68 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rock Scissors Paper Game</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Rock = 0; Scissors = 1; Paper = 2 -->
-    <script>
-      function computerPlay() {
-        compMove = Math.floor(Math.random() * Math.floor(3));
-        return compMove;
-      }
+    <div id="content">
+      <h1>Rock Scissors Paper Game</h1>
+      <a href="#" id="game-start">Start the game</a>
+      <div id="game">
+        <div id="scoreTable">
+          <h2>Score</h2>
+          <div id="scoreBoard">
+            <div id="playerMove">
 
-      function playRound(userMove = prompt("Rock, Scissors or Paper?")) {
-        let compScore = computerPlay();
-        let compSelection = "";
-        if (compScore === 0) {
-          compSelection = "Rock";
-        } else if (compScore === 1) {
-          compSelection = "Scissors";
-        } else {
-          compSelection = "Paper";
-        }
-        let userScore = 0;
-        if (userMove.toLowerCase() === "scissors") {
-          userScore = 1;
-        } else if (userMove.toLowerCase() === "paper") {
-          userScore = 2;
-        }
-        return userScore - compScore === 0
-          ? `Player selected ${userMove}, bot selected ${userMove}. That's a draw!`
-          : userScore - compScore === 1 || userScore - compScore === -2
-          ? `Player selected ${userMove}, bot selected ${compSelection}. Bot wins!`
-          : `Player selected ${userMove}, bot selected ${compSelection}. Player wins!!`;
-      }
+            </div>
+            <div id="score">
+              
+            </div>
+            <div id="result">
 
-      function game() {
-        let draws = 0;
-        let wins = 0;
-        let loses = 0;
+            </div>
+            <div id="botMove">
 
-        for (let i = 0; i < 5; i++) {
-          let game = playRound();
-          console.log(game);
-          if (game.includes("Bot wins")) {
-            loses++;
-          }
-          if (game.includes("Player wins")) {
-            wins++;
-          }
-          if (game.includes("draw")) {draws++;}
-          if (i < 5) {
-            console.log(`The score is ${wins}:${loses}. Draws: ${draws}.`);
-          }
-        }
-        if (wins - loses > 0) {
-          console.log(
-            `The final score is ${wins}:${loses}. Draws: ${draws}. The player wins the game!`
-          );
-        } else {
-          console.log(
-            `The final score is ${wins}:${loses}. Draws: ${draws}. The bot wins the game!`
-          );
-        }
-      }
-    </script>
+            </div>
+          </div>
+        </div>
+        <div id="options">
+          <a href="#" id="rock" class="rsp">Rock</a>
+          <a href="#" id="scissors" class="rsp">Scissors</a>
+          <a href="#" id="paper" class="rsp">Paper</a>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>
